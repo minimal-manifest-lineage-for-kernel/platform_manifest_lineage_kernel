@@ -35,8 +35,10 @@
   </project>
   <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" remote="aosp" clone-depth="1" />
   <project path="build/pesto" name="platform/build/pesto" remote="aosp" clone-depth="1" />
+  <project path="external/boringssl" name="platform/external/boringssl" remote="aosp" clone-depth="1" />
   <project path="external/compiler-rt" name="platform/external/compiler-rt" remote="aosp" clone-depth="1" />
   <project path="external/f2fs-tools" name="platform/external/f2fs-tools" remote="aosp" clone-depth="1" />
+  <project path="external/fec" name="platform/external/fec" remote="aosp" clone-depth="1" />
   <project path="external/fmtlib" name="platform/external/fmtlib" remote="aosp" clone-depth="1" />
   <project path="external/fsverity-utils" name="platform/external/fsverity-utils" remote="aosp" clone-depth="1" />
   <project path="external/go-cmp" name="platform/external/go-cmp" remote="aosp" clone-depth="1" />
@@ -48,6 +50,7 @@
   <project path="external/lz4" name="platform/external/lz4" remote="aosp" clone-depth="1" />
   <project path="external/protobuf" name="platform/external/protobuf" remote="aosp" clone-depth="1" />
   <project path="external/spdx-tools" name="platform/external/spdx-tools" remote="aosp" clone-depth="1" />
+  <project path="external/squashfs-tools" name="platform/external/squashfs-tools" remote="aosp" clone-depth="1" />
   <project path="external/sqlite" name="platform/external/sqlite" remote="aosp" clone-depth="1" />
   <project path="external/starlark-go" name="platform/external/starlark-go" remote="aosp" clone-depth="1" />
   <project path="external/zlib" name="platform/external/zlib" remote="aosp" clone-depth="1" />
