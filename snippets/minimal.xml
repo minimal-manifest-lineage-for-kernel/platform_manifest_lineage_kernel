@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Kernel-only forks maintained by this manifest project.  Only the
+  lineage-22.2 branch is kept in each fork; rebase them on upstream 22.2.
+
+  android_build:        skips CTS/VTS/STS/tradefed tasks
+  android_vendor_lineage: creates DTB/DTBO dirs inside the kernel recipes
+  platform_manifest_lineage_kernel: this manifest, checked out at kernel-build/
+-->
+<manifest>
+  <project path="build/make" name="minimal-manifest-lineage-for-kernel/android_build" clone-depth="1">
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="kernel-build" name="minimal-manifest-lineage-for-kernel/platform_manifest_lineage_kernel" revision="lineage-22.2" />
+  <project path="vendor/lineage" name="minimal-manifest-lineage-for-kernel/android_vendor_lineage" clone-depth="1" />
+</manifest>
