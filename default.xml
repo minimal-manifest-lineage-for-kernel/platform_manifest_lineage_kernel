@@ -45,6 +45,7 @@
   <project path="external/compiler-rt" name="platform/external/compiler-rt" remote="aosp" clone-depth="1" />
   <project path="external/erofs-utils" name="platform/external/erofs-utils" remote="aosp" clone-depth="1" />
   <project path="external/f2fs-tools" name="platform/external/f2fs-tools" remote="aosp" clone-depth="1" />
+  <project path="external/fec" name="platform/external/fec" remote="aosp" clone-depth="1" />
   <project path="external/fmtlib" name="platform/external/fmtlib" remote="aosp" clone-depth="1" />
   <project path="external/fsverity-utils" name="platform/external/fsverity-utils" remote="aosp" clone-depth="1" />
   <project path="external/go-cmp" name="platform/external/go-cmp" remote="aosp" clone-depth="1" />
