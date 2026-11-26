@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Minimal LineageOS 24.0 manifest for building kernels, kernel modules, DTBs
+  and DTBOs with the native AOSP/LineageOS build system.
+
+  The tree supports both kernel layouts used by LineageOS 24.0:
+
+    * legacy in-tree kernels under kernel/<vendor>/<device>, built with the
+      kernel's own Makefiles;
+    * kernel platform trees under kernel/platform/kernel-<version>, built with
+      Kleaf/Bazel and wired into the Android build through
+      TARGET_KERNEL_PLATFORM_TARGET.
+
+  This file contains the AOSP base projects.  LineageOS-specific projects are
+  included from snippets/ so the manifest stays close to the upstream
+  LineageOS layout:
+
+    snippets/lineage.xml   LineageOS forks and Lineage-only projects
+    snippets/minimal.xml   this manifest, checked out at kernel-build/
+    snippets/kernel-*.xml  optional kernel platform workspaces
+-->
+<manifest>
+
+  <remote  name="github"
+           fetch="https://github.com"
+           review="https://review.lineageos.org" />
+
+  <remote  name="aosp"
+           fetch="https://android.googlesource.com"
+           review="https://android-review.googlesource.com"
+           revision="refs/tags/android-17.0.0_r1" />
+
+  <default revision="refs/heads/lineage-24.0"
+           remote="github"
+           sync-j="4" />
+
+  <include name="snippets/lineage.xml" />
+  <include name="snippets/minimal.xml" />
+
+  <project path="build/blueprint" name="platform/build/blueprint" remote="aosp" clone-depth="1" />
+  <project path="build/pesto" name="platform/build/pesto" remote="aosp" clone-depth="1" />
+  <project path="build/release" name="platform/build/release" remote="aosp" clone-depth="1" />
+  <project path="external/abseil-cpp" name="platform/external/abseil-cpp" remote="aosp" clone-depth="1" />
+  <project path="external/boringssl" name="platform/external/boringssl" remote="aosp" clone-depth="1" />
+  <project path="external/compiler-rt" name="platform/external/compiler-rt" remote="aosp" clone-depth="1" />
+  <project path="external/erofs-utils" name="platform/external/erofs-utils" remote="aosp" clone-depth="1" />
+  <project path="external/f2fs-tools" name="platform/external/f2fs-tools" remote="aosp" clone-depth="1" />
+  <project path="external/fmtlib" name="platform/external/fmtlib" remote="aosp" clone-depth="1" />
+  <project path="external/fsverity-utils" name="platform/external/fsverity-utils" remote="aosp" clone-depth="1" />
+  <project path="external/go-cmp" name="platform/external/go-cmp" remote="aosp" clone-depth="1" />
+  <project path="external/golang-protobuf" name="platform/external/golang-protobuf" remote="aosp" clone-depth="1" />
+  <project path="external/icu" name="platform/external/icu" remote="aosp" clone-depth="1" />
+  <project path="external/kmod" name="platform/external/kmod" remote="aosp" clone-depth="1" />
+  <project path="external/libcxx" name="platform/external/libcxx" remote="aosp" clone-depth="1" />
+  <project path="external/libcxxabi" name="platform/external/libcxxabi" remote="aosp" clone-depth="1" />
+  <project path="external/lz4" name="platform/external/lz4" remote="aosp" clone-depth="1" />
+  <project path="external/pogreb" name="platform/external/pogreb" remote="aosp" clone-depth="1" />
+  <project path="external/pcre" name="platform/external/pcre" remote="aosp" clone-depth="1" />
+  <project path="external/protobuf" name="platform/external/protobuf" remote="aosp" clone-depth="1" />
+  <project path="external/spdx-tools" name="platform/external/spdx-tools" remote="aosp" clone-depth="1" />
+  <project path="external/python/six" name="platform/external/python/six" remote="aosp" clone-depth="1" />
+  <project path="external/sqlite" name="platform/external/sqlite" remote="aosp" clone-depth="1" />
+  <project path="external/starlark-go" name="platform/external/starlark-go" remote="aosp" clone-depth="1" />
+  <project path="external/zlib" name="platform/external/zlib" remote="aosp" clone-depth="1" />
+  <project path="libnativehelper" name="platform/libnativehelper" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/bazel/common" name="platform/prebuilts/bazel/common" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/clang-tools" name="platform/prebuilts/clang-tools" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.17-4.8" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/go/linux-x86" name="platform/prebuilts/go/linux-x86" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" revision="main-kernel-2025" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/misc" name="platform/prebuilts/misc" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/rust" name="platform/prebuilts/rust" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/rust-toolchain/linux-x86" name="platform/prebuilts/rust-toolchain/linux-x86" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/sdk" name="platform/prebuilts/sdk" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/siso" name="platform/prebuilts/siso" remote="aosp" clone-depth="1" />
+  <project path="prebuilts/tools" name="platform/prebuilts/tools" remote="aosp" clone-depth="1" />
+  <project path="system/libbase" name="platform/system/libbase" remote="aosp" clone-depth="1" />
+  <project path="system/security" name="LineageOS/android_system_security" clone-depth="1" />
+  <project path="system/tools/aidl" name="platform/system/tools/aidl" remote="aosp" clone-depth="1" />
+  <project path="system/tools/hidl" name="platform/system/tools/hidl" remote="aosp" clone-depth="1" />
+  <project path="system/tools/mkbootimg" name="platform/system/tools/mkbootimg" remote="aosp" clone-depth="1" />
+  <project path="system/tools/sysprop" name="platform/system/tools/sysprop" remote="aosp" clone-depth="1" />
+  <project path="system/tools/xsdc" name="platform/system/tools/xsdc" remote="aosp" clone-depth="1" />
+  <project path="toolchain/pgo-profiles" name="toolchain/pgo-profiles" remote="aosp" clone-depth="1" />
+
+</manifest>
